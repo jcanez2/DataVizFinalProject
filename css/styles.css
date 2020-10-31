@@ -1,0 +1,55 @@
+#wrapper {
+    margin:auto;
+    width:1600px;
+    height: 1200;
+  }
+  input {
+    width:50px;
+  }
+  svg {
+    border:1px solid red;
+    border-radius:10px;
+    height:1000px;
+    width:800px;
+    margin:1px;
+  }
+  #linechart {
+    width: 1500px;
+    border: 1px solid blue;
+  }
+  
+  #linechart2 {
+    width: 700px;
+    border: 1px solid blue;
+  }
+  
+  html {
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+  
+  .countrymap {
+    stroke: black;
+  }
+  
+  
+  h1 {
+    text-align: center;
+  }
+  
+  h2{
+    display: inline-block;
+    text-align: left;
+    padding: 50px;
+  }
+  
+  #pHolder{
+      border-top:8px solid #3C3FEE;
+      padding-bottom:75px;
+      background-color: #B4F1F1;
+      width: 1420px;
+      height: 220px;
+  }
+  
+  p{
+    padding: 5px;
+  }
