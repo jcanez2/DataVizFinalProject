@@ -12,10 +12,19 @@
 </head>
 <body>
     <h1>Final Project CSE494</h1>
+    
     <div class="checkbox">
-        <input onchange="toggleOpacity()" type="checkbox" id="covidID" name="CovidName" checked >
-    <label id="covidLabel" for="covidID">Covid-19 Data</label>
+        <h3>Controls</h3>
+        <label class="switch">
+            <input type="checkbox" checked id="covidID" name="CovidName" onchange="toggleOpacity()" >
+            <span class="slider round"></span>
+          </label>
+        <label id="covidLabel" for="covidID">Covid-19 Data</label>
+        <hr style="height:2px;border-width:0;color:gray;background-color:gray; width:89%; margin-left:0px; margin-top:40%"> 
+        <!-- change top margin in hr after adding more components -->
+        <h3>Legend</h3>
     </div>
+    
     <svg id='linechart'></svg>
     <div class="container">
         <svg id='barchart'></svg>
