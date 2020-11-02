@@ -6,21 +6,21 @@
     <title>Final Project CSE494</title>
     <link rel='stylesheet' href='css/styles.css'>
     <script src='https://d3js.org/d3.v5.min.js'></script>
-    <script src="scripts/jc.js"></script>
-    <script src="scripts/ml.js"></script>
-    <script src="scripts/sm.js"></script>
+    <script src="scripts/linechart.js"></script>
+    <script src="scripts/piechart.js"></script>
+    <script src="scripts/barchart.js"></script>
 </head>
 <body>
     <h1>Final Project CSE494</h1>
-    <hr width="100%">
-    
-
-
-
-
+    <div class="checkbox">
+        <input onchange="toggleOpacity()" type="checkbox" id="covidID" name="CovidName" checked >
+    <label id="covidLabel" for="covidID">Covid-19 Data</label>
+    </div>
     <svg id='linechart'></svg>
+    <div class="container">
+        <svg id='barchart'></svg>
+        <svg id='piechart'></svg>
+    </div>
     <br>
-    <input onchange="toggleOpacity()" type="checkbox" id="covidID" name="CovidName" checked >
-    <label for="covidID">Covid-19 Data</label>
 </body>
 </html>

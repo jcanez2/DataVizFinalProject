@@ -3,8 +3,8 @@ let covidPath;
 let lineSvg;
 let mortalityData;
 let x = 'xyz';
-let lineInnerWidth = 1200;
-let lineInnerHeight = 800;
+let lineInnerWidth = 1300;
+let lineInnerHeight = 550;
 let dataAvg = [];
 let data2020 = [];
 let data2019 = [];
@@ -68,19 +68,19 @@ function drawLineGraph(){
     .attr("transform",`translate(${140},${60})`);
 
     g.append("g")
-    .style("font-size", "14px")
+    .style("font-size", "18px")
     .attr("font-family", "sans-serif")
-    .attr("color", "grey")
+    .attr("color", "white")
     .call(d3.axisLeft(y)
     .tickSize(-lineInnerWidth))
     .call(g => g.select(".domain")
             .remove())
     .call(g => g.selectAll(".tick:not(:first-of-type) line")
-            .attr("stroke-opacity", 0.5)
+            .attr("stroke-opacity", 1)
             .attr("stroke-dasharray", "5,10"));
 
     g.append("text")
-        .style("fill", "grey")
+        .style("fill", "white")
         .style("text-anchor","middle")
         .attr("transform",`translate(${lineInnerWidth/2},${lineInnerHeight  + 50})`)
         .style("font-size", "24px")
@@ -91,7 +91,7 @@ function drawLineGraph(){
     g.append("g")
         .attr("class","xAxis")   
         .attr("font-family", "sans-serif")
-        .attr("color", "grey")
+        .attr("color", "white")
         .style("font-size", "16px")
         .attr("transform",`translate(0,${lineInnerHeight})`)
         .call(d3.axisBottom(x)
@@ -121,7 +121,7 @@ function drawLine(thisYear = 'Year2015', thisColor = 'black'){
     if(thisYear == 'Year2020'){
         covidPath = g.append("path")
             .datum(mortalityData)  
-            .style("stroke-width",'2')
+            .style("stroke-width",'4')
             .style("r", 0)      
             .style("fill",'none')
             .style("stroke",thisColor)
@@ -129,7 +129,7 @@ function drawLine(thisYear = 'Year2015', thisColor = 'black'){
     }else{
         thisPath = g.append("path")
             .datum(mortalityData)  
-            .style("stroke-width",'2')
+            .style("stroke-width",'4')
             .style("r", 0)      
             .style("fill",'none')
             .style("stroke",thisColor)

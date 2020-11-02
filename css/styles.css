@@ -1,21 +1,49 @@
 #wrapper {
     margin:auto;
-    width:1600px;
+    width:1500px;
     height: 1200;
   }
   input {
     width:50px;
   }
-  svg {
-    border:1px solid red;
-    border-radius:10px;
-    height:1000px;
-    width:800px;
-    margin:1px;
+
+  body {
+    background-color: rgb(30, 30, 79);
   }
+
   #linechart {
     width: 1500px;
-    border: 1px solid blue;
+    height: 700px;
+    background:rgb(174, 174, 174, .1);
+    border-radius:10px;
+    left: 50%;
+    top: 70%;
+    -webkit-transform: translate(40%, 0%);
+    transform: translate(40%, 0%);
+  }
+
+  .container {
+    display: flex;
+  }
+
+  #piechart {
+    background:rgb(174, 174, 174, .1);
+    border-radius:10px;
+    height:700px;
+    width:850px;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+
+  #barchart {
+    background:rgb(174, 174, 174, .1);
+    border-radius:10px;
+    height:700px;
+    width:1100px;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 100px;
   }
   
   #linechart2 {
@@ -34,6 +62,9 @@
   
   h1 {
     text-align: center;
+    font-size: 70px;
+    font-family: "century gothic"; 
+    color: whitesmoke;
   }
   
   h2{
@@ -52,4 +83,31 @@
   
   p{
     padding: 5px;
+  }
+
+  #covidID {
+    color: whitesmoke;
+    width: 25px;
+    height: 25px;
+  }
+
+  #covidLabel {
+    color: whitesmoke;
+    font-size: 26px;
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 5px;
+    position: relative;
+  }
+
+  .checkbox {
+    width: 400px;
+    height: 660px;
+    background:rgb(174, 174, 174, .1);
+    padding-top: 40px;
+    padding-left: 50px;
+    border-radius:10px;
+    position: absolute;
+    top: 165px;
+    left: 107px;
   }
