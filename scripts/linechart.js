@@ -1,5 +1,9 @@
 let thisPath;
 let covidPath;
+let covidArea;
+let thisArea;
+let covidPoints;
+let thisPoints;
 let lineSvg;
 let mortalityData;
 let x = 'xyz';
@@ -118,6 +122,8 @@ function drawLine(thisYear = 'Year2015', thisColor = 'black'){
         .y(d => y(d[thisYear] || 0))  
         .curve(d3.curveLinear);
 
+    
+
     if(thisYear == 'Year2020'){
         covidPath = g.append("path")
             .datum(mortalityData)  
@@ -126,6 +132,26 @@ function drawLine(thisYear = 'Year2015', thisColor = 'black'){
             .style("fill",'none')
             .style("stroke",thisColor)
             .attr("d", line);
+        
+        covidArea = g.append("path")
+            .datum(mortalityData)
+            .attr("fill", thisColor)
+            .attr("fill-opacity", .4)
+            .attr("stroke", "none")
+            .attr("d", d3.area()
+            .x(d => x(d.Week))
+            .y0(lineInnerHeight)
+            .y1(d => y(d[thisYear] || 0)) );
+        covidPonts = g.selectAll("circles")
+            .data(mortalityData)
+            .enter()
+            .append("circle")
+                .attr("fill", "white")
+                .attr("stroke", "none")
+                // .attr("transform", "translate(100," + (margins.top) + ")")
+                .attr("cx", d => x(d.Week))
+                .attr("cy", d => y(d[thisYear] || 0))
+                .attr("r", 3); 
     }else{
         thisPath = g.append("path")
             .datum(mortalityData)  
@@ -134,20 +160,47 @@ function drawLine(thisYear = 'Year2015', thisColor = 'black'){
             .style("fill",'none')
             .style("stroke",thisColor)
             .attr("d", line); 
+        thisArea = g.append("path")
+            .datum(mortalityData)
+            .attr("fill", thisColor)
+            .attr("fill-opacity", .4)
+            .attr("stroke", "none")
+            .attr("d", d3.area()
+            .x(d => x(d.Week))
+            .y0(lineInnerHeight)
+            .y1(d => y(d[thisYear] || 0)) );
+        thisPonts = g.selectAll("circles")
+            .data(mortalityData)
+            .enter()
+            .append("circle")
+                .attr("fill", "white")
+                .attr("stroke", "none")
+                // .attr("transform", "translate(100," + (margins.top) + ")")
+                .attr("cx", d => x(d.Week))
+                .attr("cy", d => y(d[thisYear] || 0))
+                .attr("r", 3); 
     }
 }
 
 function toggleOpacity(){
     console.log('test1');
-
+// TODO: hide and display dots
     if(document.getElementById('covidID').checked){
         console.log('box is unChecked');
-        thisPath.style("stroke-width",'2').attr('opacity', 0);
-        covidPath.style("stroke-width",'2').attr('opacity', 1);
+        thisPath.style("stroke-width",'4').attr('opacity', 0);
+        thisArea.style("stroke-width",'4').attr('opacity', 0);
+        // thisPoints.attr("r", 0);
+        covidPath.style("stroke-width",'4').attr('opacity', 1);
+        covidArea.style("stroke-width",'4').attr('opacity', 1);
+        // covidPoints.attr("r", 3);
     }else{
         console.log('Box is Checked')
-        thisPath.style("stroke-width",'9').attr('opacity', 1); 
-        covidPath.style("stroke-width",'2').attr('opacity', 0);
+        thisPath.style("stroke-width",'9').attr('opacity', 1);
+        thisArea.style("stroke-width",'4').attr('opacity', 1); 
+        // thisPoints.attr("r", 3);
+        covidPath.style("stroke-width",'4').attr('opacity', 0);
+        covidArea.style("stroke-width",'4').attr('opacity', 0);
+        // covidPoints.attr("r", 0);
     }  
 }
 
